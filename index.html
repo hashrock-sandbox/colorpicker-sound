@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color → Sound Synesthesia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div id="model-switcher">
+        <button class="model-btn active" data-model="messiaen">Messiaen</button>
+        <button class="model-btn" data-model="kandinsky">Kandinsky</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="color-grid">
+        <button class="color-btn" data-color="red" style="--btn-color: #e74c3c;">
+          <span class="color-label">Red</span>
+        </button>
+        <button class="color-btn" data-color="orange" style="--btn-color: #e67e22;">
+          <span class="color-label">Orange</span>
+        </button>
+        <button class="color-btn" data-color="yellow" style="--btn-color: #f1c40f;">
+          <span class="color-label">Yellow</span>
+        </button>
+        <button class="color-btn" data-color="green" style="--btn-color: #2ecc71;">
+          <span class="color-label">Green</span>
+        </button>
+        <button class="color-btn" data-color="blue" style="--btn-color: #3498db;">
+          <span class="color-label">Blue</span>
+        </button>
+        <button class="color-btn" data-color="purple" style="--btn-color: #9b59b6;">
+          <span class="color-label">Purple</span>
+        </button>
+        <button class="color-btn" data-color="white" style="--btn-color: #ecf0f1;">
+          <span class="color-label">White</span>
+        </button>
+      </div>
+    </main>
+
+    <footer>
+      <div id="status">
+        <span id="current-color">—</span>
+        <span id="current-model">Messiaen</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="audio-engine.js"></script>
+  <script src="models.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
