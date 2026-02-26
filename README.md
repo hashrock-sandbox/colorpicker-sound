@@ -1,191 +1,73 @@
-賛成です。モデル別に切ると、PoCとしての輪郭が一気に明確になります。
-「正しさ」ではなく「人格の一貫性」を評価軸にできるのが強い。
-
-進め方を、実装に落とせる粒度で整理します。
-
-
----
-
-モデルの基本構造（共通）
-
-各モデルは「色→音」ではなく、
-色カテゴリ → 音色状態機械として定義する。
-
-最低限持つもの：
-
-色カテゴリ集合（5〜7個）
-
-各カテゴリの初期FM状態
-
-カテゴリ間遷移ルール（モーフの癖）
-
-禁止領域（そのモデルでは出ない音）
-
-
-UI上は
-
-> Model: Messiaen / Kandinsky / Day
-を切り替えるだけで、同じ「青」でも全く違う音が出る。
-
-
-
-
----
-
-Model A: Messiaen モデル
-
-性格：重層・発光・和声由来
-
-音色設計
-
-3-op FM or 2-op + サブ
-
-index は高め、ratio は整数寄り
-
-
-色の出方
-
-青：重なった半透明レイヤ
-
-黄：強いミクスチャ、光の塊
-
-
-モーフ特性
-
-急に変わらず「積層が増減」
-
-遷移中に色が“濁らない”
-
-
-
-→ FM index＝色の厚みが最重要
-→ 壊れないFM、宗教的安定感
-
-
----
-
-Model B: Kandinsky モデル
-
-性格：方向性・鋭さ・空間
-
-音色設計
-
-2-op FM
-
-ratio を大胆に動かす
-
-
-色の出方
-
-黄：高キャリア・鋭いアタック
-
-青：低く沈む持続音
-
-
-モーフ特性
-
-常に「前進／後退」のベクトルを持つ
-
-紫遷移時に一瞬不安定化
-
-
-
-→ indexよりアタックとスペクトル重心
-→ 音が「刺さるか沈むか」で色が決まる
-
-
----
-
-Model C: Sean Day モデル（分析的）
-
-性格：物理量 → 質感 → 色
-
-音色設計
-
-サイン／鋸／ノイズのブレンド
-
-FMは補助的
-
-
-色の出方
-
-先に「ザラ／ツル」が来る
-
-色相は遅れて確定
-
-
-モーフ特性
-
-遷移中は必ず質感崩壊フェーズが入る
-
-
-
-→ PoC的には一番「それっぽく聞こえる」
-→ 教育デモ向き
-
-
----
-
-Model D: Ellington 的モデル（擬似共感覚）
-
-性格：人格・楽器・色
-
-音色設計
-
-プリセット的
-
-同じ色でもランダムシードで個体差
-
-
-色の出方
-
-赤＝この人の音
-
-
-モーフ特性
-
-補間しない
-
-別人格に“乗り換わる”
-
-
-
-→ カテゴリ×音色の思想を強調できる
-→ UI展示向き
-
-
----
-
-PoCとしての見せ方
-
-最初は 2モデルだけで十分
-
-Messiaen vs Kandinsky が対比として強い
-
-
-同じ色ボタンを押して
-
-「モデルを切り替えて聴かせる」
-
-
-画面には
-
-色名
-
-モデル名
-だけ出す
-
-
-
-説明不要で「思想の違い」が伝わる。
-
-
----
-
-次の一手としておすすめなのは、
-どれか1モデルを異様に作り込むことです。
-「青はこの音以外ありえない」というレベルまで固定すると、
-他モデルが相対的に立ち上がる。
-
-どのモデルから詰めます？
-FMオペレータ数まで一緒に決めてもいい段階です。
+# React + TypeScript + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
