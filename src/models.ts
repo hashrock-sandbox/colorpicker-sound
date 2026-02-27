@@ -82,7 +82,7 @@ function messiaenMap(hue: number, lightness: number): SynthParams {
       attack: lerp(0.03, 0.15, lt),
       decay: lerp(0.2, 0.4, lt),
       sustain: lerp(0.7, 0.4, lt),
-      release: lerp(0.6, 1.2, lt),
+      release: lerp(0.06, 0.12, lt),
     },
     duration: lerp(2.0, 3.5, lt),
     sub: {
@@ -145,7 +145,7 @@ function kandinskyMap(hue: number, lightness: number): SynthParams {
       attack: lerp(0.005, 0.2, lt),
       decay: lerp(0.08, 0.5, lt),
       sustain: lerp(0.3, 0.7, lt),
-      release: lerp(0.2, 1.5, lt),
+      release: lerp(0.02, 0.15, lt),
     },
     duration: lerp(1.0, 4.0, lt),
   };
