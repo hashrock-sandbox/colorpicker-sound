@@ -184,6 +184,22 @@ footer {
   border-color: #555;
 }
 
+.about-link-btn {
+  background: transparent;
+  color: #666;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.about-link-btn:hover {
+  color: #bbb;
+  border-color: #555;
+}
+
 /* --- Responsive --- */
 @media (max-width: 480px) {
   .app {

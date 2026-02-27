@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Color → Sound Synesthesia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+色を音に変換するインタラクティブなWebアプリケーション。カラーホイール上で色を選ぶと、共感覚モデルに基づいて FM 合成による音が生成されます。
 
-Currently, two official plugins are available:
+**Demo**: https://hashrock-sandbox.github.io/colorpicker-sound/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 概要
 
-## React Compiler
+カラーホイールをタッチ/クリックすると、選んだ色の **色相 (Hue)** と **明度 (Lightness)** が共感覚モデルによってシンセサイザーのパラメータに変換され、リアルタイムで音が鳴ります。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2つの共感覚モデルを切り替えて、異なる色→音の体験を楽しめます。
 
-## Expanding the ESLint configuration
+### モデル
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| モデル | 着想 | 特徴 |
+|--------|------|------|
+| **Messiaen** | オリヴィエ・メシアンの色彩和声 | 重層的・温かみのある倍音構造。ステンドグラスのような響き |
+| **Kandinsky** | ワシリー・カンディンスキーの色彩理論 | 幾何学的・大胆な非整数比。鋭く空間的な響き |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### カラーホイールの読み方
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **角度** = 色相 (0°〜360°)
+- **中心** = 白に近い (明度 100%) → 純粋でシンプルな音
+- **外周** = 鮮やかな色 (明度 50%) → 複雑でリッチな音
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 技術スタック
+
+- React 19 + TypeScript
+- Vite
+- Web Audio API (FM 合成)
+
+外部のオーディオライブラリは使用していません。すべての音声合成は Web Audio API のみで行っています。
+
+## セットアップ
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ビルド
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+## ライセンス
+
+MIT

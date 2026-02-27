@@ -1,0 +1,262 @@
+.about {
+  width: 100%;
+  max-width: 720px;
+  padding: 2rem;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.about-nav {
+  margin-bottom: 2rem;
+}
+
+.about-back-btn {
+  background: transparent;
+  color: #888;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.about-back-btn:hover {
+  color: #ddd;
+  border-color: #555;
+}
+
+.about h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.about-intro {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-section {
+  margin-bottom: 3rem;
+}
+
+.about h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #222;
+}
+
+.model-section h2 {
+  color: #e0e0e0;
+}
+
+.model-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: -0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.about h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #bbb;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.about p {
+  color: #999;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.about ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.about ul li {
+  color: #999;
+  font-size: 0.9rem;
+  padding: 0.2rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.about ul li::before {
+  content: "·";
+  position: absolute;
+  left: 0.3rem;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Wheel diagram */
+.about-diagram {
+  display: flex;
+  justify-content: center;
+  margin: 1.2rem 0;
+}
+
+.wheel-diagram {
+  position: relative;
+}
+
+.wheel-outer {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(
+    hsl(0, 100%, 50%),
+    hsl(60, 100%, 50%),
+    hsl(120, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(240, 100%, 50%),
+    hsl(300, 100%, 50%),
+    hsl(360, 100%, 50%)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.wheel-inner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, white 0%, rgba(255, 255, 255, 0.6) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-label-edge {
+  position: absolute;
+  top: -1.6rem;
+  font-size: 0.75rem;
+  color: #777;
+  white-space: nowrap;
+}
+
+.wheel-label-center {
+  font-size: 0.65rem;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* FM chain diagram */
+.fm-chain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0 1.2rem;
+}
+
+.fm-block {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.fm-mod {
+  background: #1a1a2e;
+  color: #7b8cde;
+  border: 1px solid #2a2a4e;
+}
+
+.fm-carrier {
+  background: #1e2a1e;
+  color: #7bde8c;
+  border: 1px solid #2e4a2e;
+}
+
+.fm-out {
+  background: #2a1a1a;
+  color: #de7b7b;
+  border: 1px solid #4a2a2a;
+}
+
+.fm-arrow {
+  color: #444;
+  font-size: 1rem;
+}
+
+/* Tables */
+.about table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.about th {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #333;
+  color: #777;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.about td {
+  padding: 0.45rem 0.8rem;
+  border-bottom: 1px solid #1a1a1a;
+  color: #bbb;
+}
+
+.about tr:last-child td {
+  border-bottom: none;
+}
+
+.table-note {
+  font-size: 0.8rem !important;
+  color: #666 !important;
+  margin-top: 0.3rem;
+}
+
+/* Color dots */
+.color-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .about {
+    padding: 1.5rem;
+  }
+
+  .about h1 {
+    font-size: 1.3rem;
+  }
+
+  .about table {
+    font-size: 0.78rem;
+  }
+
+  .about th,
+  .about td {
+    padding: 0.35rem 0.5rem;
+  }
+
+  .fm-block {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+}
