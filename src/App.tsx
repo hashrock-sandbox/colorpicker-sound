@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AudioEngine } from "./audio-engine";
 import { MODELS, type ModelKey } from "./models";
 import { ColorWheel, type ColorWheelValue } from "./ColorWheel";
+import { AboutPage } from "./AboutPage";
 import "./App.css";
 
 function hslToString(hue: number, lightness: number): string {
@@ -15,6 +16,7 @@ export function App() {
   const [pickedColor, setPickedColor] = useState<ColorWheelValue | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [wheelSize, setWheelSize] = useState(280);
+  const [showAbout, setShowAbout] = useState(false);
 
   const getEngine = useCallback(() => {
     if (!engineRef.current) {
@@ -72,6 +74,10 @@ export function App() {
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
   }, [isFullscreen]);
+
+  if (showAbout) {
+    return <AboutPage onBack={() => setShowAbout(false)} />;
+  }
 
   return (
     <div
@@ -147,6 +153,12 @@ export function App() {
             <span className="current-model">{MODELS[currentModel].name}</span>
             <button className="fullscreen-btn" onClick={toggleFullscreen}>
               Fullscreen
+            </button>
+            <button
+              className="about-link-btn"
+              onClick={() => setShowAbout(true)}
+            >
+              About
             </button>
           </div>
         </footer>
